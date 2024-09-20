@@ -46,7 +46,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 22.8.0
           cache: 'npm'
