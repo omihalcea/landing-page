@@ -36,14 +36,17 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          node-version: 22.8.0
-          cache: 'npm'
           # Upload entire repository
           path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
       - name: Install dependencies
         run: npm install
       - name: Build
         run: npm run build
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.8.0
+          cache: 'npm'
